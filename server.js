@@ -4,12 +4,11 @@ const users = require('./data/users')
 const app = express()
 const PORT = 3100
 
-// parse the user object
+// parse the request body object
 app.use(express.json())
 
 
-//email and password
-
+//requires:email and password
 app.post('/login', (req, res) => {
     const { email, password } = req.body
 
