@@ -1,7 +1,10 @@
-import { Express } from "express";
-import { register } from "@reflet/express"
-import { UsersController } from "./users/users.controller";
+import { register, Registration } from "@reflet/express"
+import { Express } from "express"
+import { UsersController } from "./users/users.controller"
+import { AuthController } from "./auth/auth.controller"
 
 export function registerRoutes(app: Express) {
-    register(app, [UsersController])
+    const routes: Registration[] = [UsersController]
+
+    register(app, routes)
 }

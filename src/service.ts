@@ -1,7 +1,7 @@
-export class Service {
+export class GreetingsService {
 
     sayHello(name: string) {
-        return `Hello ${name}`
+        return `Hello ${name}, How are you?`
     }
 
 }

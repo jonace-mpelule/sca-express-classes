@@ -1,13 +1,21 @@
-import "reflect-metadata";
+import 'reflect-metadata'
+
 import express from "express"
 import { registerRoutes } from "./routes"
 
+// REFENCE EXPRESS
 const app = express()
-const PORT = 3100
-
-// register routes 
+app.use(express.json())
+// REGISTER ROUTES WITH REFLECT EXPRESS
 registerRoutes(app)
 
+app.get('/trial', (req, res) => {
+    return res.send({
+        queries: req.query
+    })
+})
 
-// parse the request body object
+
+
+const PORT = 3100
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`))

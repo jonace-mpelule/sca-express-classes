@@ -1,18 +1,23 @@
-import { Service } from "./service";
+import { GreetingsService } from "./service";
 
-class Controller {
-    private services: Service
+class GreetingController {
+    private greetingsService: GreetingsService
+
     constructor() {
-        this.services = new Service()
+        this.greetingsService = new GreetingsService()
     }
 
-    handleSayHello(name: string) {
-        const greeting = this.services.sayHello(name)
+    handleSayHello() {
+        const greeting = this.greetingsService.sayHello("Jonace")
         console.log(greeting)
     }
+
 
 }
 
 
-const controller = new Controller()
-controller.handleSayHello("Jonace M")
+
+const greetingController = new GreetingController()
+
+greetingController.handleSayHello()
+
