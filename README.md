@@ -4,9 +4,9 @@
 
 
 ## How to Recreate this Project
-- npm init -y     # to initialize a node project
-- create the src/ folder     * (this will content all your project files)
-- run `tsc --init`      * to initialize your typescript project
+- run `npm init -y`     # to initialize a node project
+- create the `src` folder     * (this will contain all your project files)
+- run `tsc --init`      * to initialize typescript in your project
 
 ## tsconfig.json
 
