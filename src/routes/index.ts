@@ -4,7 +4,7 @@ import { UsersController } from "./users/users.controller"
 import { AuthController } from "./auth/auth.controller"
 
 export function registerRoutes(app: Express) {
-    const routes: Registration[] = [UsersController]
+    const routes: Registration[] = [AuthController, UsersController]
 
     register(app, routes)
 }

@@ -13,6 +13,7 @@ export class UsersService {
 
     handleAddUser(name: string, email: string, password: string) {
         user.push({
+            id: user.length++,
             name,
             email,
             password,

@@ -1,5 +1,7 @@
-import { Get, Post, Req, Res, Router } from "@reflet/express";
+import { Get, Post, Req, Res, Router, Use } from "@reflet/express";
 import { UsersService } from "./users.service";
+import { TestMiddleware } from "../../middlewares/test.middleware";
+import { AuthGuard } from "../../middlewares/auth-guard.middleware";
 
 @Router('/users')
 export class UsersController {
@@ -12,6 +14,7 @@ export class UsersController {
 
 
     @Get('/get-users')
+    @Use(TestMiddleware)
     async getUsers(req: Req, res: Res) {
         try {
             const result = this.usersService.handleGetUsers()
@@ -42,6 +45,7 @@ export class UsersController {
     }
 
     @Post('/add-user')
+    @Use(AuthGuard)
     addUser(req: Req, res: Res) {
         try {
 

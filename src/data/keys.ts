@@ -1,0 +1,2 @@
+export const ACCESS_TOKEN_KEY = "0981293"
+export const REFRESH_TOKEN_KEY = "LPASD324"
