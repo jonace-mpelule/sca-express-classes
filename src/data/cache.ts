@@ -1,5 +1,4 @@
 
-
 export async function cache(storeData: Array<String>) {
     let data = storeData
     const getItem = (token: string): string | null => {

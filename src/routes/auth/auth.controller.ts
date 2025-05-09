@@ -1,5 +1,7 @@
-import { Get, Post, Req, Res, Router } from "@reflet/express"
+import { Get, Post, Req, Res, Router, Use } from "@reflet/express"
 import { AuthService } from "./auth.service"
+import { ValidationGuard } from "../../middlewares/validation-guard.middleware";
+import { LoginDTO } from "../../types/dto/auth.dto";
 
 @Router('/auth')
 export class AuthController {
@@ -10,14 +12,11 @@ export class AuthController {
     }
 
     @Post('/login')
+    @Use(ValidationGuard(LoginDTO))
     async login(req: Req, res: Res) {
         try {
             const email = req.body.email;
             const password = req.body.password
-
-            if (!email || !password) {
-                throw "bad-request"
-            }
 
             const result = await this.authService.handleLogin(email, password);
             return res.status(200).send({
